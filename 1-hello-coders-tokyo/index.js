@@ -13,14 +13,14 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 app.use(express.static('public')) // static file
 
-app.get('/', function(req,res) {
-	res.render('index', { // tham số thứ nhất là path này tính từ ./views
-		"name" : "Dang Trung" // tham số thứ hai là object
-	});
+app.get('/', function(req, res) {
+    res.render('index', { // tham số thứ nhất là path này tính từ ./views
+        "name": "Dang Trung" // tham số thứ hai là object
+    });
 })
 
 app.use('/users', userRoute); // phải nhớ exports router thì mới dùng được, cái này để đánh dấu route bắt đầu bằng /users 
 
-app.listen(port, function(){
-	console.log('server listening on ' + port);
+app.listen(port, function() {
+    console.log('server listening on ' + port);
 })
