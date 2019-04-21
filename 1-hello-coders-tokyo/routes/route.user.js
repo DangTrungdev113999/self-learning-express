@@ -1,10 +1,16 @@
 var express = require('express');
 var controller = require('../controllers/user.controller.js')
 var validation = require('../validation/user.validation.js')
+var cookieParser = require('cookie-parser')
 
 var router = express.Router();
 
-router.get('/', controller.index)
+router.get('/', controller.index);
+
+router.get('/cookies', function(req, res, next) {
+	res.cookie('user-id', 12345);
+	res.send('hello');
+})
 
 // cái routing này để tìm kiếm
 router.get('/search', controller.search)

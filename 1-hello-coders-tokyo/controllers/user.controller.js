@@ -22,6 +22,7 @@ module.exports.search = function(req, res) { // đường dẫn bắt đầu b�
 }
 
 module.exports.create = function(req, res) {
+	console.log(req.cookies);
     res.render('users/create')
 }
 
