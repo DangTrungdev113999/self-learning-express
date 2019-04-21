@@ -1,19 +1,6 @@
 {
   "users": [
     {
-      "name": "thong",
-      "id": "Wp_YkSCc9"
-    },
-    {
-      "name": "hoang",
-      "id": "EUIxNB0KD"
-    },
-    {
-      "name": "",
-      "phone": "",
-      "id": "TiuO0IpZo"
-    },
-    {
       "name": "Đặng Thế Trung",
       "phone": "0328579282",
       "id": "Nr2tVHr1V"
@@ -22,6 +9,16 @@
       "name": "Đặng Thế Trung",
       "phone": "0328579282",
       "id": "f_kP7NW6E"
+    },
+    {
+      "name": "phieu",
+      "phone": "0123123123",
+      "id": "3Glpy8yp5"
+    },
+    {
+      "name": "Đặng Thế Trung",
+      "phone": "0328579282",
+      "id": "HG1RzcQ3n"
     }
   ]
 }

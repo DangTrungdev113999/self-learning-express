@@ -1,8 +1,14 @@
 extends ../layouts/common
 
 block content
- h1 view user
+  h1 usser info
+  
+  p
+    b Name: &nbsp;
+    .alert.alert-dark
+      span= user.name
  
- p
-  b Name: &nbsp;
-  span= user.name
+  p
+    b Phone: &nbsp;
+    .alert.alert-dark
+      span.ml-auto= user.phone
