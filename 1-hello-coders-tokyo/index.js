@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var userRoute = require('./routes/route.user');
 var authRoute = require('./routes/route.auth');
 
-var authMiddleware = require('./middleware/login.middleware')
+var authMiddleware = require('./middleware/login.middleware');
 
 var app = express();
 
@@ -16,7 +16,7 @@ app.set('views', './views');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser()); 
+app.use(cookieParser());
 
 
 app.use(express.static('public')) // static file
@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
     });
 })
 
-app.use('/users', userRoute); // phải nhớ exports router thì mới dùng được, cái này để đánh dấu route bắt đầu bằng /users 
+app.use('/users', authMiddleware.requireAuth, userRoute); // phải nhớ exports router thì mới dùng được, cái này để đánh dấu route bắt đầu bằng /users 
 app.use('/auth', authRoute);
 
 app.listen(port, function() {
