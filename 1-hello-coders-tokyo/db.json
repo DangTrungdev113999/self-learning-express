@@ -8,7 +8,9 @@
     {
       "name": "Đặng Thế Trung",
       "phone": "0328579282",
-      "id": "f_kP7NW6E"
+      "id": "f_kP7NW6E",
+      "email": "trung@gmail.com",
+      "password": "123123"
     },
     {
       "name": "phieu",
@@ -19,6 +21,11 @@
       "name": "Đặng Thế Trung",
       "phone": "0328579282",
       "id": "HG1RzcQ3n"
+    },
+    {
+      "name": "trung@123",
+      "phone": "0328579282",
+      "id": "yYRO6aBAD"
     }
   ]
 }

@@ -1,7 +1,9 @@
 var express = require('express');
+
 var controller = require('../controllers/user.controller.js')
 var validation = require('../validation/user.validation.js')
-var cookieParser = require('cookie-parser')
+
+var authMiddleware = require('../middleware/login.middleware')
 
 var router = express.Router();
 

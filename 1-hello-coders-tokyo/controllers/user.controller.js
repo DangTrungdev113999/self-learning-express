@@ -1,6 +1,5 @@
 var db = require('../db') // do không nằm chung folder nên phải ra ngoài folder
 var shortid = require('shortid');
-var bodyParser = require('body-parser');
 
 module.exports.index = function(req, res) {
     res.render('users/index', {

@@ -1,7 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var userRoute = require('./routes/route.user')
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
+
+var userRoute = require('./routes/route.user');
+var authRoute = require('./routes/route.auth');
+
+var authMiddleware = require('./middleware/login.middleware')
 
 var app = express();
 
@@ -24,6 +28,7 @@ app.get('/', function(req, res) {
 })
 
 app.use('/users', userRoute); // phải nhớ exports router thì mới dùng được, cái này để đánh dấu route bắt đầu bằng /users 
+app.use('/auth', authRoute);
 
 app.listen(port, function() {
     console.log('server listening on ' + port);
