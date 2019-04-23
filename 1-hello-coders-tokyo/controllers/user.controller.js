@@ -8,9 +8,10 @@ module.exports.index = function(req, res) {
 }
 
 module.exports.search = function(req, res) { // đường dẫn bắt đầu bằng users nội tại
+
     var q = req.query.q;
     var machedUsers = db.get('users').value().filter(function(user) {
-        return user.name.toLowerCase().indexOf(q.toLowerCase()) ==! -1
+        return user.name.indexOf(q) ==! -1
         // nếu q nằm trong user.name thì sẽ trả về giá trị > -1
         // nếu q không nằm trong user.name thì sẽ trả về giá trị < -1
     })
