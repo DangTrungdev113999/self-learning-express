@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 
 var userRoute = require('./routes/route.user');
 var authRoute = require('./routes/route.auth');
+var productRoute = require('./routes/route.product');
 
 var authMiddleware = require('./middleware/login.middleware');
 
@@ -30,6 +31,7 @@ app.get('/', function(req, res) {
 })
 
 app.use('/users', authMiddleware.requireAuth, userRoute); // phải nhớ exports router thì mới dùng được, cái này để đánh dấu route bắt đầu bằng /users 
+app.use('/product', productRoute);
 app.use('/auth', authRoute);
 
 app.listen(port, function() {
