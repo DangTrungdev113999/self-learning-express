@@ -20,3 +20,12 @@ block content
               p.card-text= product.Descroption
               a.btn.btn-primary(href='#') add to card
 
+    nav.ml-auto(aria-label='Page navigation example')
+      ul.pagination.justify-content-end
+        li.page-item
+          a.page-link(href='/product?page=' + Previous) Previous
+        while startGame <= endGame
+          li.page-item
+            a.page-link(href='/product?page=' + startGame)=startGame++
+        li.page-item
+          a.page-link(href='/product?page=' + next) Next
