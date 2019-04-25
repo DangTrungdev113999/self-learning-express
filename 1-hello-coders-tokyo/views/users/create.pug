@@ -11,12 +11,17 @@ block content
     span Create user
     a.ml-2.btn.btn-info(href="/users") users
 
-  form(action="/users/create", method="POST")
+  form(action="/users/create", method="POST", enctype="multipart/form-data")
     .form-group
       label(for="name") Name
       input#name.form-control(type="text", name="name", value= values ? values.name : '')
-
+    
+    .form-group
       label(for="phone") phone
       input#phone.form-control(type="text", name="phone", value= values ? values.phone : '')
+
+    .form-group
+      label(for="avatar") avatar
+      input#avatar.form-control-file(type="file", name="avatar")
 
       button.btn.btn-primary.mt-2 Create

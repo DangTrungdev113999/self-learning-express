@@ -1,9 +1,11 @@
 var express = require('express');
+var multer  = require('multer'); // mã hoá 
 
 var controller = require('../controllers/user.controller.js')
 var validation = require('../validation/user.validation.js')
 
 var authMiddleware = require('../middleware/login.middleware')
+var upload = multer({ dest: './public/uploads/' })
 
 var router = express.Router();
 
@@ -24,6 +26,11 @@ router.get('/create', controller.create)
 router.get('/:id', controller.get)
 
 // tạo một cái en poi để có thể trả lời được khi nhận một các request 
-router.post('/create', validation.postCreate, controller.postCreate)
+router.post('/create',
+	upload.single('avatar'), 
+	// uploat 1 file đơn lẻ ở cái field có tên là avarta gửi từ dưới cilent lên, 
+	// phải nhớ tên này phải trùng với tên của field ở bên html
+	validation.postCreate, 
+	controller.postCreate)
 
 module.exports = router;

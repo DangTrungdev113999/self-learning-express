@@ -17,7 +17,7 @@ var port = 3000;
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.json()); // không hỗ trợ mutilpart/form-data
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 

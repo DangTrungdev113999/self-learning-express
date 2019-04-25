@@ -12,12 +12,15 @@ block content
  
   table.table
     tr
+      th Avatar
       th Name
       th phone
       th Action
  
     each user in users
       tr
+        td
+          img(src=user.avatar, width='32px')
         td= user.name
         td= user.phone
         td
