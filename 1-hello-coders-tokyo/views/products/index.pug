@@ -18,7 +18,7 @@ block content
             .card-body
               h5.card-title= product.Name
               p.card-text= product.Descroption
-              a.btn.btn-primary(href='#') add to card
+              a.btn.btn-primary(href='cart/add/' + product.Id) add to card
 
     nav.ml-auto(aria-label='Page navigation example')
       ul.pagination.justify-content-end
