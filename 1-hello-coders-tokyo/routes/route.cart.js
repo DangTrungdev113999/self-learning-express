@@ -5,5 +5,8 @@ var router = express.Router();
 
 router.get('/add/:productId', controller.addToCart);
 
+router.get('/listItems', controller.listItems);
+
+
 
 module.exports = router;

@@ -20,5 +20,16 @@ module.exports.addToCart = function(req, res, next) {
 	  .set('cart.' + productId, count + 1)
 	  .write();
 
-	 res.redirect('/product');
+	res.locals.count = db
+		.get('sessions')
+		.find({Id: sessionId})
+		.get('cart.' + productId, count)
+		.value();;
+
+	res.redirect('/product');
+	next();
+}
+
+module.exports.listItems = function(req, res, next) {
+	res.render('cart/listItems')
 }

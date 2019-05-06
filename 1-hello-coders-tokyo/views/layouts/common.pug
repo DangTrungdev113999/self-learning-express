@@ -15,11 +15,11 @@ html
           li.nav-item
             a.nav-link(href='/users') users
           li.nav-item
-            a.nav-link(href='/users') products
+            a.nav-link(href='/product') products
           li.nav-item
-            a.nav-link(href='/users') cart
+            a.nav-link(href='/cart/listItems')  cart(#{count})
       if user
-        p= user.name
+        p= user.name 
       
     .container.pt-5
       block content
