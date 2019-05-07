@@ -1,0 +1,16 @@
+extends ../layouts/common
+
+block content
+  h1 new transfer
+
+  form(action="", method="POST")
+    //- không viết gì trong dấu "" là gửi lên chính trang hiện tại
+    input(type="hidden", name="_csrf", value=csrfToken)
+    .form-group
+      label(for="account") Account
+      input#account.form-control(type="text", name="accountId")
+
+      label(for="amount") amount
+      input#amount.form-control(type="number", name="amount")
+
+      button.btn.btn-primary.mt-2 transfer
