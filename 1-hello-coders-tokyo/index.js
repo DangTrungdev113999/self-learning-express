@@ -3,16 +3,16 @@ require('dotenv').config()
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var csurf = require('csurf');
+// var csurf = require('csurf');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect('mongodb://localhost/express-demo');
 
 var userRoute = require('./routes/route.user');
 var authRoute = require('./routes/route.auth');
 var productRoute = require('./routes/route.product');
 var cartRoute = require('./routes/route.cart');
-var transferRoute = require('./routes/router.transfer')
+// var transferRoute = require('./routes/router.transfer')
 
 var authMiddleware = require('./middleware/login.middleware');
 var sessionMiddleware = require('./middleware/session.middleware.js');
@@ -28,7 +28,7 @@ app.use(bodyParser.json()); // không hỗ trợ mutilpart/form-data
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(sessionMiddleware); // kiểm tra xem có cookies nào chưa, nếu chưa thì tạo.
-app.use(csurf({ cookie: true }));
+// app.use(csurf({ cookie: true })); đang lỗi
 
 
 app.use(express.static('public')) // static file
@@ -43,7 +43,7 @@ app.use('/users', authMiddleware.requireAuth, userRoute); // phải nhớ export
 app.use('/product', productRoute);
 app.use('/auth', authRoute);
 app.use('/cart', cartRoute);
-app.use('/transfer', authMiddleware.requireAuth, transferRoute);
+// app.use('/transfer', authMiddleware.requireAuth, transferRoute);
 
 app.listen(port, function() {
     console.log('server listening on ' + port);

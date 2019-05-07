@@ -3,7 +3,7 @@ extends ../layouts/common
 block content
   h1 new transfer
 
-  form(action="", method="POST")
+  form(method="POST")
     //- không viết gì trong dấu "" là gửi lên chính trang hiện tại
     input(type="hidden", name="_csrf", value=csrfToken)
     .form-group
