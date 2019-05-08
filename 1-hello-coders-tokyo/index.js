@@ -14,6 +14,8 @@ var productRoute = require('./routes/route.product');
 var cartRoute = require('./routes/route.cart');
 // var transferRoute = require('./routes/router.transfer')
 
+var apiProductRoute = require('./api/routes/product.route')
+
 var authMiddleware = require('./middleware/login.middleware');
 var sessionMiddleware = require('./middleware/session.middleware.js');
 
@@ -31,6 +33,7 @@ app.use(sessionMiddleware); // kiểm tra xem có cookies nào chưa, nếu chư
 // app.use(csurf({ cookie: true })); đang lỗi
 
 
+
 app.use(express.static('public')) // static file
 
 app.get('/', function(req, res) {
@@ -44,6 +47,8 @@ app.use('/product', productRoute);
 app.use('/auth', authRoute);
 app.use('/cart', cartRoute);
 // app.use('/transfer', authMiddleware.requireAuth, transferRoute);
+
+app.use('/api/product', apiProductRoute);
 
 app.listen(port, function() {
     console.log('server listening on ' + port);
