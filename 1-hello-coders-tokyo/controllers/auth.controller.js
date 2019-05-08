@@ -1,16 +1,17 @@
 var md5 = require('md5');
 
-var db = require('../db'); // do không nằm chung folder nên phải ra ngoài folder
+var User = require('../models/user.model')
 
-module.exports.login = function(req, res) {
+module.exports.login = async function(req, res) {
 	res.render('auth/login')
 }
 
-module.exports.postlogin = function(req, res) {
+module.exports.postlogin = async function(req, res) {
 	var email = req.body.email;
 	var password = req.body.password;
 
-	var user = db.get('users').find({email: email}).value();
+	// var user = db.get('users').find({email: email}).value();
+	var user = await User.findOne({ email: email })
 
 	if(!user) {
 		res.render('auth/login',{

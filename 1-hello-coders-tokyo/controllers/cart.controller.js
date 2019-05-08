@@ -24,7 +24,7 @@ module.exports.addToCart = function(req, res, next) {
 		.get('sessions')
 		.find({Id: sessionId})
 		.get('cart.' + productId, count)
-		.value();;
+		.value();
 
 	res.redirect('/product');
 	next();

@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 // var csurf = require('csurf');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/express-demo');
+mongoose.connect('mongodb://localhost/express-demo', { useNewUrlParser: true });
 
 var userRoute = require('./routes/route.user');
 var authRoute = require('./routes/route.auth');
@@ -25,7 +25,7 @@ app.set('view engine', 'pug');
 app.set('views', './views');
 
 app.use(bodyParser.json()); // không hỗ trợ mutilpart/form-data
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true})); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(sessionMiddleware); // kiểm tra xem có cookies nào chưa, nếu chưa thì tạo.
 // app.use(csurf({ cookie: true })); đang lỗi
