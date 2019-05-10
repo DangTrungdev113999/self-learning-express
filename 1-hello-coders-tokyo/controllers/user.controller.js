@@ -38,7 +38,7 @@ module.exports.postCreate = async function(req, res) {
     var users = await User.find();
     req.body.avatar = req.file.path.split('\\').slice(1).join('\\');
     
-   users.push(req.body);
+    User.create(req.body);
     // cho người dùng quay về trang users
     res.redirect("/users")
 }

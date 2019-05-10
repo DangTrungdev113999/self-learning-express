@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 // var csurf = require('csurf');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/express-demo', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true });
 
 var userRoute = require('./routes/route.user');
 var authRoute = require('./routes/route.auth');
@@ -21,7 +21,7 @@ var sessionMiddleware = require('./middleware/session.middleware.js');
 
 var app = express();
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 app.set('view engine', 'pug');
 app.set('views', './views');
